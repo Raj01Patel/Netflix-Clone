@@ -10,15 +10,26 @@ import { useEffect } from 'react'
 import WatchPage from './pages/WatchPage'
 import SearchPage from './pages/SearchPage'
 import NotFoundPage from "./pages/404";
+import { Loader } from 'lucide-react'
 
 function App() {
 
-  const { user, authCheck, isCheckinAuth } = useAuthStore();
+  const { user, authCheck, isCheckingAuth } = useAuthStore();
 
 
   useEffect(() => {
     authCheck();
-  }, [])
+  }, [authCheck])
+
+  if (isCheckingAuth) {
+		return (
+			<div className='h-screen'>
+				<div className='flex justify-center items-center bg-black h-full'>
+					<Loader className='animate-spin text-red-600 size-10' />
+				</div>
+			</div>
+		);
+	}
 
   return (
     <>
