@@ -4,7 +4,7 @@ import { create } from "zustand";
 
 export const useAuthStore = create((set) => ({
     user: null,
-    isSigninUp: false,
+    isSigningUp: false,
     isCheckingAuth: true,
     isLoggingOut: false,
     isLoggingIn: false,
@@ -12,7 +12,7 @@ export const useAuthStore = create((set) => ({
         set({ isSigninUp: true })
         try {
             const response = await axios.post("/api/v1/auth/signup", credentials);
-            set({ user: response.data.user, isSigninUp: false });
+            set({ user: response.data.user, isSigningUp: false });
 
             toast.success("Account created successfully");
         }

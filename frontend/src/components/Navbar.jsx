@@ -39,7 +39,7 @@ const Navbar = () => {
                     <Search className='size-6 cursor-pointer' />
                 </Link>
                 <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg" alt='Avatar' className='h-8 rounded cursor-pointer' />
-                <LogOut className='size-6 cursor-pointer' onClick={logout} />
+                <Link to={"/login"}><LogOut className='size-6 cursor-pointer' onClick={logout} /></Link>
                 <div className='sm:hidden'>
                     <Menu className='size-6 cursor-pointer' onClick={toggleMobileMenu} />
                 </div>
